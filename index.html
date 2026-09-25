@@ -1,0 +1,194 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Undangan Ulang Tahun</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffe0ec, #dff3ff);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .cover {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #ff9ec4, #a8d8ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 10;
+            transition: 0.8s ease;
+        }
+
+        .cover-content {
+            color: white;
+        }
+
+        .cover h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .cover p {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            border: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            background: white;
+            color: #ff5f9e;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .undangan {
+            width: 90%;
+            max-width: 500px;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(10px);
+            padding: 40px 25px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            animation: muncul 1s ease;
+        }
+
+        .undangan h2 {
+            color: #ff5f9e;
+            font-size: 20px;
+        }
+
+        .undangan h1 {
+            font-size: 42px;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .umur {
+            font-size: 70px;
+            font-weight: bold;
+            color: #ff5f9e;
+        }
+
+        .undangan p {
+            color: #555;
+            line-height: 1.7;
+            margin: 10px 0;
+        }
+
+        .detail {
+            background: #fff;
+            padding: 15px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .detail strong {
+            color: #ff5f9e;
+        }
+
+        .music-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background: #ff5f9e;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @keyframes muncul {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Balon */
+        .balon {
+            position: absolute;
+            font-size: 40px;
+            animation: terbang 5s linear infinite;
+        }
+
+        .balon1 {
+            left: 10%;
+            bottom: -100px;
+        }
+
+        .balon2 {
+            right: 10%;
+            bottom: -100px;
+            animation-delay: 2s;
+        }
+
+        @keyframes terbang {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-120vh);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HALAMAN PEMBUKA -->
+    <div class="cover" id="cover">
+
+        <div class="cover-content">
+
+            <div style="font-size:70px;">🎂</div>
+
+            <h1>You're Invited!</h1>
+
+            <p>Ke pesta ulang tahun spesial</p>
+
+            <button class="btn" onclick="bukaUndangan()">
+                💌 Buka Undangan
+            </button>
+
+        </div
+```
