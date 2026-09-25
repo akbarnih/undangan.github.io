@@ -5,190 +5,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Undangan Ulang Tahun</title>
+    <title>Birthday Invitation - Akbar</title>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background: linear-gradient(135deg, #ffe0ec, #dff3ff);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            background: #fff8f5;
+            color: #333;
         }
+
+        /* ================= COVER ================= */
 
         .cover {
             position: fixed;
             inset: 0;
-            background: linear-gradient(135deg, #ff9ec4, #a8d8ff);
+            z-index: 999;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            z-index: 10;
-            transition: 0.8s ease;
+            color: white;
+            background:
+                linear-gradient(rgba(50, 30, 30, .45), rgba(50, 30, 30, .65)),
+                url("foto-utama.jpg") center/cover;
+            transition: 1s ease;
+        }
+
+        .cover.hide {
+            opacity: 0;
+            visibility: hidden;
         }
 
         .cover-content {
-            color: white;
+            padding: 30px;
+        }
+
+        .cover-small {
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
         }
 
         .cover h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(50px, 12vw, 90px);
+            margin: 10px 0;
         }
 
         .cover p {
-            font-size: 16px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
-        .btn {
-            border: none;
-            padding: 14px 30px;
-            border-radius: 30px;
-            background: white;
-            color: #ff5f9e;
-            font-size: 16px;
-            font-weight: bold;
+        .open-button {
+            border: 1px solid white;
+            background: rgba(255,255,255,.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            transition: 0.3s;
+            font-size: 15px;
+            transition: .3s;
         }
 
-        .btn:hover {
+        .open-button:hover {
+            background: white;
+            color: #8d5c54;
             transform: scale(1.05);
         }
 
-        .undangan {
-            width: 90%;
-            max-width: 500px;
-            background: rgba(255,255,255,0.85);
-            backdrop-filter: blur(10px);
-            padding: 40px 25px;
-            border-radius: 25px;
+
+        /* ================= HERO ================= */
+
+        section {
+            padding: 90px 20px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-            animation: muncul 1s ease;
+            background:
+                linear-gradient(rgba(255,248,245,.8), rgba(255,248,245,.95)),
+                url("foto-utama.jpg") center/cover;
         }
 
-        .undangan h2 {
-            color: #ff5f9e;
-            font-size: 20px;
+        .hero-content {
+            max-width: 700px;
         }
 
-        .undangan h1 {
-            font-size: 42px;
-            color: #333;
+        .subtitle {
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #9b6c63;
+        }
+
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(55px, 12vw, 100px);
+            font-weight: 500;
+            color: #704840;
             margin: 10px 0;
         }
 
-        .umur {
-            font-size: 70px;
-            font-weight: bold;
-            color: #ff5f9e;
+        .hero .age {
+            font-family: 'Playfair Display', serif;
+            font-size: 100px;
+            color: #b78678;
         }
 
-        .undangan p {
-            color: #555;
-            line-height: 1.7;
-            margin: 10px 0;
+        .hero p {
+            max-width: 500px;
+            margin: 20px auto;
+            line-height: 1.8;
+            color: #666;
         }
 
-        .detail {
-            background: #fff;
-            padding: 15px;
-            border-radius: 15px;
-            margin: 20px 0;
+
+        /* ================= FOTO ================= */
+
+        .photo-section {
+            text-align: center;
         }
 
-        .detail strong {
-            color: #ff5f9e;
-        }
-
-        .music-btn {
-            position: fixed;
-            right: 20px;
-            bottom: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            background: #ff5f9e;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        @keyframes muncul {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        /* Balon */
-        .balon {
-            position: absolute;
-            font-size: 40px;
-            animation: terbang 5s linear infinite;
-        }
-
-        .balon1 {
-            left: 10%;
-            bottom: -100px;
-        }
-
-        .balon2 {
-            right: 10%;
-            bottom: -100px;
-            animation-delay: 2s;
-        }
-
-        @keyframes terbang {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(-120vh);
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- HALAMAN PEMBUKA -->
-    <div class="cover" id="cover">
-
-        <div class="cover-content">
-
-            <div style="font-size:70px;">🎂</div>
-
-            <h1>You're Invited!</h1>
-
-            <p>Ke pesta ulang tahun spesial</p>
-
-            <button class="btn" onclick="bukaUndangan()">
-                💌 Buka Undangan
-            </button>
-
-        </div
+        .photo-section h2,
+        .gal
 ```
